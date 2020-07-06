@@ -3,8 +3,8 @@ Esta aplicacion puede:
 - create/read/update/delete Notes
 - Allows a user to do log in and save his personal notes
 
-# Screenshot
-![](docs/tasks.png)
+# Planilla
+![](docs/Planilla de planificacion de Casos Clinicos Centro de Simualción UNLaM.pdf)
 
 # Environment Variables
 This app needs the following environment Variables
@@ -13,11 +13,11 @@ This app needs the following environment Variables
 * `NODE_ENV` node environment
 
 # Tutorial
-This app was created with educational purposes, so you can found the tutorials on the following links:
-* [Updated tutorial](https://www.faztweb.com)
+Esta aplicacion es realizada con fin educativo:
+* [Updated tutorial]()
 
-new tutorial made in 2020
-* [Version 2](https://www.youtube.com/playlist?list=PLo5lAe9kQrwqUEXK7oQbzv63KsdODzuAy)
+#2020
+* [Version 0](https://east-deck.000webhostapp.com/)
 
 
 * [Version 1.0.0]()
