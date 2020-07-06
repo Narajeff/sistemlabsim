@@ -1,6 +1,5 @@
-# Notes App with Node, Mongodb
-This is a basic App to manage simple Notes on the web using Javascript Technologies like Nodejs, Mongodb, and so on.
-This app can:
+# para adquirir citas para el uso de los laboratorios de la UnLam con Node, Mongodb Esta aplicacion Maneja  simples reservas de Laboratorios de la Universidad on the web usando Javascript Technologies como Nodejs, Mongodb.
+Esta aplicacion puede:
 - create/read/update/delete Notes
 - Allows a user to do log in and save his personal notes
 
@@ -20,8 +19,7 @@ This app was created with educational purposes, so you can found the tutorials o
 new tutorial made in 2020
 * [Version 2](https://www.youtube.com/playlist?list=PLo5lAe9kQrwqUEXK7oQbzv63KsdODzuAy)
 
-and these are old tutorials about this app
-* [Version 1.0.0](https://youtu.be/-bI0diefasA)
+
+* [Version 1.0.0]()
 Sistema de Gestion 
 
-para adquirir citas para el uso de los laboratorios de la UnLam
