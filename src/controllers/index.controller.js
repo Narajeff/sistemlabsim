@@ -4,6 +4,10 @@ indexCtrl.renderIndex = (req, res) => {
     res.render('index');
 };
 
+indexCtrl.renderIni = (req, res) => {
+    res.render('selectable');
+};
+
 indexCtrl.renderHabilidades = (req, res) => {
     res.render('habilidadesclinicas');
 };

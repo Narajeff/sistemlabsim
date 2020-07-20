@@ -1,9 +1,10 @@
 # Nodejs
 node_modules
-
+lib
 # npm
 package-lock.json
 
 # environment variables
 .env
 node_modules
+lib
