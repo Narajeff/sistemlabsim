@@ -13,26 +13,16 @@
       <th scope="col">Descripción</th>
     </tr>
   </thead>
+   {{#each insumos}}
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>5300</td>
-      <td>07</td>
-      <td>Guantes de Examinacion</td>
+      <td>{{ cantidad }}</td>
+      <td>{{ armario }}</td>
+      <td>{{ descripcion }}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>50</td>
-      <td>11</td>
-      <td>Guantes Esteriles x par Talla 8</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>50</td>
-      <td>11</td>
-      <td>Guantes Esteriles x par Talla 7.5</td>
-    </tr>
-  </tbody>
+    </tbody>
+    {{/each}}
 </table>  
   </div>
 

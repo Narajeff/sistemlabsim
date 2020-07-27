@@ -35,12 +35,16 @@ inventarioCtrl.createNewInsumo = async(req, res) => {
     }
 };
 
-
-
-
-inventarioCtrl.renderInsumos = (req, res) => {
-    res.render('inventario/insumos');
+inventarioCtrl.renderInsumos = async(req, res) => {
+    const insumos = await Insumos.find();
+    res.render("inventario/insumos", { insumos });
 };
+
+
+
+//inventarioCtrl.renderInsumos = (req, res) => {
+//  res.render('inventario/insumos');
+//};
 
 inventarioCtrl.renderMoviliario = (req, res) => {
     res.render('inventario/moviliario');
