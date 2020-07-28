@@ -13,6 +13,18 @@ const NoteSchema = new Schema({
         type: String,
         required: true
     },
+    fecha: {
+        type: String,
+        required: true
+    },
+    aula: {
+        type: String,
+        required: true
+    },
+    hora: {
+        type: String,
+        required: true
+    },
     carrera: {
         type: String,
         required: true

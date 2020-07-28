@@ -1,0 +1,42 @@
+<section class="card">
+  <div class="card-header">
+    <h1 class="align-items-center">Insumos</h1>
+  </div>
+  <div class="card-body">
+      <h1>Insumos Descartables</h1>
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Descripción</th>
+    </tr>
+  </thead>
+   {{#each selectInsumos}}
+  <tbody>
+    <tr>
+      <th scope="row">{{  @index  }}</th>
+        <td class="card-title d-flex justify-content-between align-items-center">
+            <div id="contador">1</div>
+            <input type="button" id="boton" value="+1" onClick="cambiar()">
+        
+        </td>
+      <td>{{ descripcion}} </td>
+    </tr>
+    </tbody>
+    {{/each}}
+</table>  
+  </div>
+
+</section>
+
+<script>
+  
+
+    var contador = 1;
+  
+    function cambiar() {
+  
+document.getElementById('contador').innerHTML = contador += 1;
+  }
+</script>

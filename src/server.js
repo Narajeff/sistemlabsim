@@ -13,6 +13,7 @@ require('./config/passport');
 
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
 
+
 // settings
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
@@ -53,5 +54,7 @@ app.use(require('./routes/notes.routes'));
 app.use(require('./routes/inventario.routes'));
 // static files
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 module.exports = app;

@@ -10,8 +10,11 @@
           cantidad de Estudiantes: {{ cantestu }} <i class="far fa-calendar-alt" data-toggle="modal" data-target="#exampleModal"></i></a>
         </h5>
         <h5 class="card-title d-flex justify-content-between align-items-center">
-          Materia: {{ materia }} <a href="/inventario/insumos"><i class="far fa-clipboard"></i></a>
+          Materia: {{ materia }} <a href="/inventario/select-insumo"><i class="far fa-clipboard"></i></a>
         </h5>
+        <p>Fecha: {{ fecha }} </p>
+        <p>Aula: {{ aula }} </p>
+        <p>Hora: {{ hora }} </p>
         <p>Carrera: {{ carrera }} </p>
         <!-- DELETE REQUEST -->
         <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
