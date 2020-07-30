@@ -1,8 +1,119 @@
+<script src="../app.js">
+</script>
 <section class="card">
   <div class="card-body">
     <h1>Centro de Simulacion</h1>
-    <p>
-      Adipisicing lorem laudantium fuga excepturi iste earum? Architecto et sint exercitationem nihil voluptatum? Quae dolores sint fugiat inventore soluta ad Tenetur minima odit qui fugit eveniet minima? Repellat nobis harum quia placeat eveniet fugit voluptatem Pariatur maiores molestiae est quas. gracias por preferirnos
-    </p>
+      <div id="calendar2"></div>
   </div>
+
 </section>
+
+<script type="module">
+
+    
+const Reserva = require('../models/Note');
+
+const reservas = Reserva.find();
+    res.json(reservas);
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar2');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        headerToolbar: {
+            left: 'prev,next today Miboton',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },  
+        customButtons:{
+          Miboton:{
+            text:"Reservar",
+            click:function(){
+              $('#exampleModal').modal('toggle');
+              
+            }
+          }
+        },
+
+        dateClick:function(info){
+          $('#fecha').val(info.dateStr);
+          $('#exampleModal').modal();
+
+
+        },
+
+         select: function(arg) {
+        var title =  $('#exampleModal').modal();
+            calendar.addEvent({
+            title: $('#materia'),
+            start: arg.start,
+            end: arg.end,
+            
+          })
+        
+         },
+        events: [{
+                title: $('#materia'),
+                start: '2020-07-01'
+            },
+            {
+                title: 'Long Event',
+                start: '2020-06-07',
+                end: '2020-06-10'
+            },
+            {
+                groupId: 999,
+                title: 'Repeating Event',
+                start: '2020-06-09T16:00:00'
+            },
+            {
+                groupId: 999,
+                title: 'Repeating Event',
+                start: '2020-07-16T16:00:00'
+            },
+            {
+                title: 'Conference',
+                start: '2020-07-11',
+                end: '2020-07-13'
+            },
+            {
+                title: 'Meeting',
+                start: '2020-06-12T10:30:00',
+                end: '2020-06-12T12:30:00'
+            },
+            {
+                title: 'Lunch',
+                start: '2020-06-12T12:00:00'
+            },
+            {
+                title: 'Meeting',
+                start: '2020-06-12T14:30:00'
+            },
+            {
+                title: 'Happy Hour',
+                start: '2020-06-12T17:30:00'
+            },
+            {
+                title: 'Dinner',
+                start: '2020-06-12T20:00:00'
+            },
+            {
+                title: 'Birthday Party',
+                start: '2020-06-13T07:00:00'
+            },
+            {
+                title: 'Click for Google',
+                url: 'http://google.com/',
+                start: '2020-06-28'
+            }
+        ]
+
+    });
+	calendar.setOption('locale','Es');
+    calendar.render();
+   
+
+});
+
+</script>

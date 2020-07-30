@@ -41,7 +41,17 @@
 
         },
 
-        
+         select: function(arg) {
+        var title = prompt('Event Title:');
+        if (MediaStreamAudioDestinationNode) {
+          calendar.addEvent({
+            title: materia,
+            start: arg.start,
+            end: arg.end,
+            
+          })
+        }
+         },
         events: [{
                 title: 'All Day Event',
                 start: '2020-06-01'
@@ -101,6 +111,8 @@
     });
 	calendar.setOption('locale','Es');
     calendar.render();
+   
+
 });
     </script>
   
@@ -132,20 +144,20 @@
       <div class="modal-body">
           <form action="/notes/new-note" method="POST">
         <div class="form-group">
-          <input type="text" name="docente" class="form-control" placeholder="Docente a Cargo" autofocus/>
+          <input type="text" id="docente" name="docente" class="form-control" placeholder="Docente a Cargo" autofocus/>
         </div>
         <div class="form-group">
           <input type="text" name="cantestu" class="form-control" placeholder="Cantidad de Estudiantes"autofocus/>
         </div>
         <div class="form-group">
-          <input type="text" name="materia" class="form-control" placeholder="Nombre de la Materia" autofocus/>
+          <input type="text" id="materia" name="materia" class="form-control" placeholder="Nombre de la Materia" autofocus/>
         </div>
         <div class="form-group">
           <input type="text" name="fecha" class="form-control" id="fecha" autofocus/>
         </div>
         <div class="form-group">
         <label for="Name">Aula </label>
-          <select name="aula">
+          <select id="aula" name="aula">
               <option value="#">Seleccionar</option> 
               <option value="Habilidades Clinicas">Habilidades Clinicas</option>
               <option value="Gabinete de Enfermeria">Gabinete de Enfermeria</option>
@@ -161,7 +173,7 @@
         </div>
         <div class="form-group">
         <label for="Name">Hora </label>
-          <select name="hora">
+          <select id="hora" name="hora">
               <option value="#">Seleccionar</option> 
               <option value="08:00">08:00</option>
               <option value="08:30">08:30</option>
@@ -202,7 +214,7 @@
           </select>
         </div>
         <div class="form-group">
-          <button class="btn btn-primary mr-auto" type="submit">
+          <button id="btnGuardar" class="btn btn-primary mr-auto" type="submit">
             Guardar
           </button>
           <button type="button" class="btn btn-secondary mr-auto" data-dismiss="modal">Cancelar</button>

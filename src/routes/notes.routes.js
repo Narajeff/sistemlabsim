@@ -3,12 +3,12 @@ const router = express.Router();
 
 // Controller
 const {
-  renderNoteForm,
-  createNewNote,
-  renderNotes,
-  renderEditForm,
-  updateNote,
-  deleteNote
+    renderNoteForm,
+    createNewNote,
+    renderNotes,
+    renderEditForm,
+    updateNote,
+    deleteNote
 } = require("../controllers/notes.controller");
 
 // Helpers
@@ -22,6 +22,14 @@ router.post("/notes/new-note", isAuthenticated, createNewNote);
 // Get All Notes
 router.get("/notes", isAuthenticated, renderNotes);
 
+// API
+
+const Reserva = require('../models/Note');
+
+router.get("/api/reservas", async(req, res) => {
+    const reservas = await Reserva.find();
+    res.json(reservas);
+});
 // Edit Notes
 router.get("/notes/edit/:id", isAuthenticated, renderEditForm);
 
