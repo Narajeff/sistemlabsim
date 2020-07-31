@@ -8,9 +8,9 @@ notesCtrl.renderNoteForm = (req, res) => {
 };
 
 notesCtrl.createNewNote = async(req, res) => {
-    const { docente, cantestu, materia, fecha, aula, hora, carrera } = req.body;
+    const { title, cantestu, materia, date, aula, hora, carrera } = req.body;
     const errors = [];
-    if (!docente) {
+    if (!title) {
         errors.push({ text: "Por Favor ingresar un Docente." });
     }
     if (!cantestu) {
@@ -19,7 +19,7 @@ notesCtrl.createNewNote = async(req, res) => {
     if (!materia) {
         errors.push({ text: "Por Favor ingresar Materia." });
     }
-    if (!fecha) {
+    if (!date) {
         errors.push({ text: "Por Favor ingresar una Fecha." });
     }
     if (!aula) {
@@ -34,16 +34,16 @@ notesCtrl.createNewNote = async(req, res) => {
     if (errors.length > 0) {
         res.render("notes/new-note", {
             errors,
-            docente,
+            title,
             cantestu,
             materia,
-            fecha,
+            date,
             aula,
             hora,
             carrera
         });
     } else {
-        const newNote = new Note({ docente, cantestu, materia, fecha, aula, hora, carrera });
+        const newNote = new Note({ title, cantestu, materia, date, aula, hora, carrera });
         newNote.user = req.user.id;
         await newNote.save();
         req.flash("success_msg", "Reserva Agregada");
@@ -66,8 +66,8 @@ notesCtrl.renderEditForm = async(req, res) => {
 };
 
 notesCtrl.updateNote = async(req, res) => {
-    const { docente, cantestu, materia, fecha, aula, hora, carrera } = req.body;
-    await Note.findByIdAndUpdate(req.params.id, { docente, cantestu, materia, fecha, aula, hora, carrera });
+    const { title, cantestu, materia, date, aula, hora, carrera } = req.body;
+    await Note.findByIdAndUpdate(req.params.id, { title, cantestu, materia, date, aula, hora, carrera });
     req.flash("success_msg", "Reserva Actualizada");
     res.redirect("/notes");
 };

@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const NoteSchema = new Schema({
-    docente: {
+    title: {
         type: String,
         required: true
     },
@@ -13,7 +13,7 @@ const NoteSchema = new Schema({
         type: String,
         required: true
     },
-    fecha: {
+    date: {
         type: String,
         required: true
     },
