@@ -1,6 +1,67 @@
-
-
-
-    <div id="calendar"></div>
-
+<section class="card">
+  <div class="card-header">
+    <h1 class="align-items-center">Insumos</h1>
+  </div>
+  <div class="card-body">
+      <h1>Insumos Descartables</h1>
+      
+        <table class="table table-bordered">
+         <thead>
+       <tr>
+      <th scope="col">#</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Descripción</th>
+    </tr>
+  </thead>
+   {{#each selectInsumos}}
+  <tbody>
+    <tr>
+      <th scope="row">{{  @index  }}</th>
+      
+        <td class="card-title d-flex justify-content-between align-items-center">
+      
+            <input type="number" value="0" min="0" max="20" id="cantidad"></td>
+      <td id="desc">{{ descripcion }}</td>
+    </tr>
+    </tbody>
+    {{/each}}
+</table>  
+  </div>
+    <div class="form-group col-md-4 mx-auto ">
+          <button id="btnAgregar" class="btn btn-primary align-items-center my-sm-0" type="submit">
+            Agregar Insumos
+          </button>
+          <button type="button" class="btn btn-secondary">Cancelar</button>
+        </div>
     
+</section>
+
+
+
+<!--<script>
+
+    document.querySelector('#btnAgregar').addEventListener('click', obtener;
+
+
+
+    function obtener(){
+
+      const xhttp = new XMLHttpRequest();
+      xhttp.open('GET', '/api/reservas', true);
+      xhttp.send();
+      xhttp.onreadystatechange = function (){
+
+          if (this.readyState == 4 && this.status == 200){
+            console.log(this.responseText);
+          }
+
+
+      }
+      
+
+    }
+    
+
+</script>
+
+-->

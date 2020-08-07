@@ -35,15 +35,14 @@ inventarioCtrl.createNewInsumo = async(req, res) => {
     }
 };
 
+
 inventarioCtrl.renderInsumos = async(req, res) => {
     const insumos = await Insumos.find();
     res.render("inventario/insumos", { insumos });
 };
 
-inventarioCtrl.renderSelectInsumos = async(req, res) => {
-    const selectInsumos = await Insumos.find();
-    res.render("inventario/select-insumo", { selectInsumos });
-};
+
+
 
 //inventarioCtrl.renderInsumos = (req, res) => {
 //  res.render('inventario/insumos');

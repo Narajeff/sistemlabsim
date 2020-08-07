@@ -1,23 +1,17 @@
 <div class="row">
-  {{#each notes}}
+  {{#each pedidos}}
   <div class="col-md-3">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title d-flex justify-content-between align-items-center">
-          Docente: {{ title }} <a href="/notes/edit/{{_id}}"><i class="fas fa-edit"></i></a>
+          Cantidad: {{ cantidad }} <a href="/pedidos/edit-pedido/{{_id}}"><i class="fas fa-edit"></i></a>
         </h5>
         <h5 class="card-title d-flex justify-content-between align-items-center">
-          cantidad de Estudiantes: {{ cantestu }} <a href="/pedidos/insumos-pedidos" <i class="far fa-calendar-alt"></i></a>
+          Insumo: {{ descripcion }} <i class="far fa-calendar-alt" data-toggle="modal" data-target="#exampleModal"></i></a>
         </h5>
-        <h5 class="card-title d-flex justify-content-between align-items-center">
-          Materia: {{ materia }} <a href="/pedidos/add"><i class="far fa-clipboard"></i></a>
-        </h5>
-        <p>Fecha: {{ date }} </p>
-        <p>Aula: {{ aula }} </p>
-        <p>Hora: {{ hora}} </p>
-        <p>Carrera: {{ carrera }} </p>
+       
         <!-- DELETE REQUEST -->
-        <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+        <form action="/pedidos/delete/{{_id}}?_method=DELETE" method="POST">
           <input type="hidden" name="_method" value="DELETE">
           <button type="submit" class="btn btn-danger btn-block btn-sm">Borrar</button>
         </form>
@@ -29,12 +23,11 @@
     <div class="card-body">
       <h1>Hola {{user.name}}</h1>
       <p clsss="lead">No tienes ninguna Reserva por los momentos.</p>
-      <a href="/notes/add" class="btn btn-success btn-block">Crear Reserva</a>
+      <a href="/pedidos/add" class="btn btn-success btn-block">Crear Reserva</a>
     </div>
   </div>
   {{/each}}
 </div>
-
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -46,7 +39,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <iframe src="/pedidos/insumos-pedidos"></iframe>
+        <iframe src="https://calendar.google.com/calendar/embed?src=unlamlabsim%40gmail.com&ctz=America%2FArgentina%2FBuenos_Aires" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

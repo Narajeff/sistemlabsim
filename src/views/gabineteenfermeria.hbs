@@ -1,8 +1,64 @@
+<script type="text/javascript" src="../app.js">
+import ReservaService from './services/reservaService'
+</script>
 <section class="card">
   <div class="card-body">
-    <h1>Gabinete Enfermeria</h1>
-    <p>
-      Adipisicing lorem laudantium fuga excepturi iste earum? Architecto et sint exercitationem nihil voluptatum? Quae dolores sint fugiat inventore soluta ad Tenetur minima odit qui fugit eveniet minima? Repellat nobis harum quia placeat eveniet fugit voluptatem Pariatur maiores molestiae est quas. gracias por preferirnos
-    </p>
+    <h1>Gabinete de Enfermeria</h1>
+      <div id="calendar2"></div>
   </div>
+
 </section>
+
+<script type="text/javascript">
+
+
+    
+//const Reserva = require('../models/Note');
+
+//const reservas = Reserva.find();
+  //  res.json(reservas);
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar2');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        headerToolbar: {
+            left: 'prev,next today Miboton',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },  
+        customButtons:{
+          Miboton:{
+            text:"Reservar",
+            click:function(){
+              $('#exampleModal').modal('toggle');
+              
+            }
+          }
+        },
+
+        dateClick:function(info){
+         calendar.changeView('timeGridDay', info.dateStr);     
+        $('#date').val(info.dateStr);
+         $('#exampleModal').modal();
+        },   
+      
+                   
+          
+
+
+                       
+        events: '/api/reservas'
+
+    });
+	calendar.setOption('locale','Es');
+    
+    calendar.render();
+   
+
+});
+
+</script>

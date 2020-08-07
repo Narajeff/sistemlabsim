@@ -1,9 +1,64 @@
+<script type="text/javascript" src="../app.js">
+import ReservaService from './services/reservaService'
+</script>
 <section class="card">
-  <div class="card-header">
-    <h1>Habilidades Clinicas</h1>
-  </div>
   <div class="card-body">
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, repellat, dolorum dignissimos esse mollitia asperiores debitis laborum sunt, molestias delectus repudiandae perferendis repellendus. Ut amet deleniti quae iste iure et accusamus molestiae repudiandae sequi dolorum impedit quaerat, saepe hic vitae delectus aliquam, possimus ipsum alias consequuntur ex animi minima officia repellendus eius. Totam nisi odio adipisci ullam nam corrupti illo tenetur aperiam! Minima nemo aspernatur minus tenetur deleniti repudiandae quos dolor pariatur molestiae reiciendis, ex dolorem deserunt, tempora quidem fuga porro ab cumque assumenda! Molestiae consequuntur quae adipisci eum necessitatibus ipsum, sint reiciendis aliquid ratione culpa sunt officiis dolore iusto.</p>  
+    <h1>Habilidades Clinicas</h1>
+      <div id="calendar2"></div>
   </div>
 
 </section>
+
+<script type="text/javascript">
+
+
+    
+//const Reserva = require('../models/Note');
+
+//const reservas = Reserva.find();
+  //  res.json(reservas);
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar2');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        headerToolbar: {
+            left: 'prev,next today Miboton',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },  
+        customButtons:{
+          Miboton:{
+            text:"Reservar",
+            click:function(){
+              $('#exampleModal').modal('toggle');
+              
+            }
+          }
+        },
+
+        dateClick:function(info){
+         calendar.changeView('timeGridDay', info.dateStr);     
+        $('#date').val(info.dateStr);
+         $('#exampleModal').modal();
+        },   
+      
+                   
+          
+
+
+                       
+        events: '/api/reservas'
+
+    });
+	calendar.setOption('locale','Es');
+    
+    calendar.render();
+   
+
+});
+
+</script>
