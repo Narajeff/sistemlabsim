@@ -6,7 +6,8 @@
       <h3>Pedido de Insumos</h3>
     </div>
     <div class="card-body">
-      <form id="askfor" action="/pedidos/new-pedido" method="POST">
+      <!--<form id="formPedido" action="/pedidos/new-pedido" method="POST"></form> -->
+      <form id="formPedido" action="/pedidos/new-pedido" method="POST">
         <div class="form-group">
           <input id="cantidad" type="number" name="cantidad" class="form-control" placeholder="Cantidad" autofocus/>
         </div>
@@ -23,28 +24,73 @@
   </div>
 </div>
 <div class="col-md-8">
-  <div id="pedi"></div>
+  <div id="pedidos"></div>
 </div>
   </div>
 </div>
-<!--
+
 <script>
 
-    document.getElementById("askfor").addEventListener('submit', saveask);
+   document.getElementById('formPedido').addEventListener('submit', savePedido);
 
-    function saveask (e){
+function savePedido (e) {
+  let cantidad = document.getElementById('cantidad').value;
+  let descripcion = document.getElementById('descripcion').value;
 
-      let cantidad = document.getElementById('cantidad').value;
-      let descripcion = document.getElementById('descripcion').value;
+  const pedido = {
+      cantidad,
+      descripcion
+  };
+  if (localStorage.getItem('pedidos') === null) {
+    let pedidos = [] ;
+    pedidos.push(pedido);
+    localStorage.setItem('pedidos', JSON.stringify(pedidos));
 
-      const ask = {
-        cantidad,
-        descripcion
-      }
+  } else{
+    let pedidos = JSON.parse(localStorage.getItem('pedidos'));
+    pedidos.push(pedido);
+    localStorage.setItem('pedidos', JSON.stringify(pedidos));
+  }
+  e.preventDefault();
+  getPedidos ();
+  document.getElementById('formPedido').reset();
+}
+
+function getPedidos (){
+  let pedidos = JSON.parse(localStorage.getItem('pedidos'));
+  let pedidosView = document.getElementById('pedidos');
+
+  pedidosView.innerHTML = '';
+
+  for (let i = 0; i < pedidos.length; i++){
+    let cantidad = pedidos[i].cantidad;
+    let descripcion = pedidos[i].descripcion;
+
+    pedidosView.innerHTML += `<div class= "card">
+        <div class="card-body">
+            <p>${cantidad} - ${descripcion}</p>
+            <a class="btn btn-danger" onclick="borraPedidos('${descripcion}')">
+            Borrar
+            </a>
+        </div>
+    </div>`
+
+  }
+
+}
+
+function borraPedidos(descripcion){
+  let pedidos = JSON.parse(localStorage.getItem('pedidos'));
+  for (let i = 0; i < pedidos.length; i++ ){
+    if (pedidos[i].descripcion == descripcion){
+        pedidos.splice(i, 1);
+    }
+    
+  }
+  localStorage.setItem('pedidos', JSON.stringify(pedidos));
+  getPedidos();
+}
 
 
-      e.preventDefault();
-
-    }-->
 
 </script>
