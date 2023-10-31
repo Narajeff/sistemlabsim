@@ -1,8 +1,4 @@
 import UI from "./UI";
-import express from "express";
-import api from "./api";
-const app = express();
-app.use("/api/v1", api);
 
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new UI();
@@ -28,4 +24,3 @@ document.getElementById("form-group").addEventListener("submit", (e) => {
 
   e.preventDefault();
 });
-export default app;
